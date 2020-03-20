@@ -12,6 +12,7 @@ public class Student {
   private int admissionYear;
   private Date birthday;
   private String classId;
+  private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
   public Student() {
   }
@@ -22,7 +23,6 @@ public class Student {
     this.name = name;
     this.gender = gender;
     this.admissionYear = admissionYear;
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     try {
       this.birthday = format.parse(birthday);
     } catch (ParseException e) {
@@ -86,7 +86,7 @@ public class Student {
         ", name='" + name + '\'' +
         ", gender='" + gender + '\'' +
         ", admissionYear=" + admissionYear +
-        ", birthday=" + birthday +
+        ", birthday=" + format.format(birthday) +
         ", classId='" + classId + '\'' +
         '}';
   }
