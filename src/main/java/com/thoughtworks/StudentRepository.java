@@ -48,8 +48,7 @@ public class StudentRepository {
                 statement.executeUpdate(sqlCreate);
                 students.forEach(this::save);
             } else {
-                // else 代码块是由于程序第二次运行时能够复现结果。
-                // 如果没有该代码块，查询的结果是经过后面修改增删后的结果。、
+              
                 ResultSet resultSet =  statement.executeQuery("SELECT id from student");
                 List<String> existId = new LinkedList<>();
                 while (resultSet.next()) {
